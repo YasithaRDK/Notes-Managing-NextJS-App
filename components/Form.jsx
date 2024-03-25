@@ -30,7 +30,10 @@ const Form = () => {
             />
           </div>
           <div className="flex justify-end">
-            <Link href="/" className="noteSubmitBtn !bg-red-500  me-2">
+            <Link
+              href="/"
+              className="noteSubmitBtn !bg-red-400 hover:!bg-red-500  me-2"
+            >
               cancel
             </Link>
             <button type="submit" className="noteSubmitBtn">
