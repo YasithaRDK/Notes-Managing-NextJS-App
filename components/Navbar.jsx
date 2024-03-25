@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="bg-white p-4 relative">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-indigo-500 font-extrabold text-2xl">
+        <div className="text-indigo-500 font-extrabold text-3xl">
           QuickNoteZ
         </div>
 
