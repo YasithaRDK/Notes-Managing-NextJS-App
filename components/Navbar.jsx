@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Navbar = () => {
@@ -13,15 +14,17 @@ const Navbar = () => {
     <nav className="bg-white p-4 relative">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="text-gray-900 font-extrabold text-2xl">QuickNoteZ</div>
+        <div className="text-indigo-500 font-extrabold text-2xl">
+          QuickNoteZ
+        </div>
 
         {/* Navbar links */}
         <div className="md:flex hidden space-x-4">
-          <a href="#" className="black_btn">
+          <Link href="/create-note" className="black_btn">
             Create
-          </a>
+          </Link>
           <a href="#" className="outline_btn">
-            SignOut
+            Sign Out
           </a>
         </div>
 
@@ -55,12 +58,15 @@ const Navbar = () => {
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        <a href="#" className="block py-2 px-10 ms-14 text-gray-800">
+        <Link
+          href="/create-note"
+          className="block py-2 px-10 ms-14 text-gray-800"
+        >
           Create Note
-        </a>
-        <a href="#" className="block py-2 px-10 ms-14 text-gray-800">
+        </Link>
+        <Link href="#" className="block py-2 px-10 ms-14 text-gray-800">
           SignOut
-        </a>
+        </Link>
       </div>
     </nav>
   );
