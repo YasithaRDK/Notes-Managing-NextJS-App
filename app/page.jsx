@@ -12,10 +12,10 @@ const Home = () => {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center w-full">
+    <section className="flex flex-col items-center w-full min-h-screen px-5">
       <h1 className="text-center head_text">
         Welcome
-        <br className="max-md:hidden" />
+        <br />
         <span className="text-center orange_gradient">
           {session?.user?.name}
         </span>

@@ -7,19 +7,19 @@ body {
 }
 
 .head_text {
-  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black  md:text-6xl;
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply max-w-2xl mt-5 text-lg text-gray-600 sm:text-xl;
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-500 bg-clip-text text-transparent;
+  @apply text-transparent bg-gradient-to-r from-blue-500 via-indigo-600 to-blue-500 bg-clip-text;
 }
 
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text;
 }
 
 .black_btn {
@@ -33,15 +33,15 @@ body {
 /**Login && Register */
 
 .authFormHeader {
-  @apply sm:mx-auto sm:w-full sm:max-w-md mb-10;
+  @apply mb-10 sm:mx-auto sm:w-full sm:max-w-md;
 }
 
 .authFormLogo {
-  @apply text-center text-3xl font-extrabold text-indigo-500;
+  @apply text-3xl font-extrabold text-center text-indigo-500;
 }
 
 .authFormTitle {
-  @apply mt-2 text-center text-xl font-semibold text-gray-600;
+  @apply mt-2 text-xl font-semibold text-center text-gray-600;
 }
 
 .authFormLabel {
@@ -49,11 +49,11 @@ body {
 }
 
 .authFormInput {
-  @apply appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+  @apply block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
 }
 
 .authSubmitBtn {
-  @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }
 
 .upInLink {
@@ -61,5 +61,5 @@ body {
 }
 
 .noteSubmitBtn {
-  @apply flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-500 border border-transparent rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }

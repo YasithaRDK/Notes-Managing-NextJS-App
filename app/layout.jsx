@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/sessionProvider";
+import Footer from "@/components/Footer";
 
 const roboto = Open_Sans({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ const RootLayout = async ({ children }) => {
         <SessionProvider session={session}>
           <Navbar />
           {children}
+          <Footer />
         </SessionProvider>
       </body>
     </html>

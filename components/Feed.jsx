@@ -4,11 +4,7 @@ import NoteCard from "./NoteCard";
 
 const Feed = () => {
   return (
-    <div className="bg-gray-100 w-full mt-10 gap-4 flex-wrap flex justify-center items-center mb-10">
-      <NoteCard />
-      <NoteCard />
-      <NoteCard />
-      <NoteCard />
+    <div className="flex flex-wrap justify-center w-full gap-4 mt-10 mb-10 bg-gray-100">
       <NoteCard />
       <NoteCard />
       <NoteCard />

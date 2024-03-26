@@ -92,7 +92,6 @@ const LoginPage = () => {
                     placeholder="Ex- johnpaul@email.com"
                     value={formData.email}
                     onChange={inputChange}
-                    required
                     className="authFormInput"
                   />
                   <p className="text-red-600 text-[13px] mb-4">{error.email}</p>
@@ -110,7 +109,6 @@ const LoginPage = () => {
                     placeholder="●●●●●●●●●●"
                     value={formData.password}
                     onChange={inputChange}
-                    required
                     className="authFormInput"
                   />
                   <p className="text-red-600 text-[13px] mb-4">

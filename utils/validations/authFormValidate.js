@@ -4,7 +4,7 @@ export const validateRegisterForm = (formData) => {
   if (!formData.name.trim()) {
     errors.name = "Username is required";
   } else if (formData.name < 4) {
-    errors.password = "Username must be at least 4 characters long";
+    errors.name = "Username must be at least 4 characters long";
   } else if (!isValidUsername(formData.name)) {
     errors.name =
       'Username can only contain letters, numbers, and underscores"';

@@ -16,21 +16,21 @@ const Navbar = () => {
   return (
     <>
       {session && (
-        <nav className="relative p-4 bg-white">
+        <nav className="sticky top-0 z-10 p-4 bg-white border-b-2 border-gray-300">
           <div className="container flex items-center justify-between mx-auto">
             {/* Logo */}
-            <div className="text-3xl font-extrabold text-indigo-500">
+            <Link href="/" className="text-3xl font-extrabold text-indigo-500">
               QuickNoteZ
-            </div>
+            </Link>
 
             {/* Navbar links */}
             <div className="hidden space-x-4 md:flex">
-              <Link href="/create-note" className="black_btn">
+              <Link href="/create-note" className="outline_btn">
                 Create
               </Link>
               <button
                 type="button"
-                className="outline_btn"
+                className="black_btn"
                 onClick={() => {
                   signOut();
                 }}
@@ -75,9 +75,14 @@ const Navbar = () => {
             >
               Create Note
             </Link>
-            <Link href="#" className="block px-10 py-2 text-gray-800 ms-14">
+            <button
+              onClick={() => {
+                signOut();
+              }}
+              className="block px-10 py-2 text-gray-800 ms-14"
+            >
               SignOut
-            </Link>
+            </button>
           </div>
         </nav>
       )}
