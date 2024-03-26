@@ -2,7 +2,7 @@ import { Schema, models, model } from "mongoose";
 
 const userSchema = new Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
       match: /^[A-Za-z0-9-_]+$/,
