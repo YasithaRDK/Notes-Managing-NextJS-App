@@ -25,7 +25,7 @@ const Navbar = () => {
 
             {/* Navbar links */}
             <div className="hidden space-x-4 md:flex">
-              <Link href="/create-note" className="outline_btn">
+              <Link href="/notes/create-note" className="outline_btn">
                 Create
               </Link>
               <button
@@ -70,14 +70,16 @@ const Navbar = () => {
             }`}
           >
             <Link
-              href="/create-note"
+              href="/notes/create-note"
               className="block px-10 py-2 text-gray-800 ms-14"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               Create Note
             </Link>
             <button
               onClick={() => {
                 signOut();
+                setIsMenuOpen(!isMenuOpen);
               }}
               className="block px-10 py-2 text-gray-800 ms-14"
             >

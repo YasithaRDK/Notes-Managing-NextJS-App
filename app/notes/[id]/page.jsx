@@ -4,10 +4,10 @@ import Form from "@/components/Form";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 
-const page = () => {
-  const { data: session } = useSession();
+const EditNotePage = () => {
+  const { data: session, status } = useSession();
 
-  if (!session) {
+  if (status !== "authenticated") {
     redirect("/login");
   }
   return (
@@ -16,4 +16,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default EditNotePage;

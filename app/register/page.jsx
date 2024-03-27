@@ -8,7 +8,7 @@ import Spinner from "@/components/Spinner";
 import { validateRegisterForm } from "@/utils/validations/authFormValidate";
 
 const RegisterPage = () => {
-  const { data: session, status: sessionStatus } = useSession();
+  const { data: session, status } = useSession();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -24,12 +24,6 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
-
-  useEffect(() => {
-    if (session) {
-      router.push("/");
-    }
-  }, [session]);
 
   const inputChange = (e) => {
     const { id, value } = e.target;
@@ -77,8 +71,10 @@ const RegisterPage = () => {
     }
   };
 
-  if (sessionStatus === "loading" || loading) {
+  if (status === "loading" || loading) {
     return <Spinner />;
+  } else if (status === "authenticated") {
+    router.push("/");
   }
 
   return (

@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-const Form = () => {
+const Form = ({ formData, onChange, onSubmit, name, error }) => {
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-3xl mt-16">
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-full max-w-3xl">
         <h1 className="mb-8 text-4xl font-bold text-center sm:text-5xl lg:text-6xl blue_gradient">
-          Create Note
+          {name} Note
         </h1>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="mb-6">
             <label htmlFor="title" className="authFormLabel">
               Title
@@ -17,8 +17,11 @@ const Form = () => {
               id="title"
               className="authFormInput"
               placeholder="Enter title"
-              required
+              value={formData.title}
+              onChange={onChange}
             />
+
+            <p className="text-red-600 text-[13px] mb-4">{error.title}</p>
           </div>
           <div className="mb-6">
             <label htmlFor="note" className="authFormLabel">
@@ -28,8 +31,11 @@ const Form = () => {
               id="note"
               className="h-48 authFormInput"
               placeholder="Write your note here"
-              required
+              value={formData.desc}
+              onChange={onChange}
             />
+
+            <p className="text-red-600 text-[13px] mb-4">{error.desc}</p>
           </div>
           <div className="flex justify-end">
             <Link
@@ -39,7 +45,7 @@ const Form = () => {
               cancel
             </Link>
             <button type="submit" className="noteSubmitBtn">
-              Create
+              {name}
             </button>
           </div>
         </form>

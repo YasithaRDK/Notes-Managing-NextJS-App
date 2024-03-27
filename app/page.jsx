@@ -1,14 +1,22 @@
 "use client";
 
 import Feed from "@/components/Feed";
+import Spinner from "@/components/Spinner";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Home = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  if (!session) {
-    redirect("/login");
+  const [loading, setLoading] = useState(false);
+
+  if (status === "loading" || loading) {
+    return <Spinner />;
+  } else if (status !== "authenticated") {
+    router.push("/login");
+    return null;
   }
 
   return (
