@@ -31,11 +31,11 @@ const Form = ({ formData, onChange, onSubmit, name, error }) => {
               id="note"
               className="h-48 authFormInput"
               placeholder="Write your note here"
-              value={formData.desc}
+              value={formData.note}
               onChange={onChange}
             />
 
-            <p className="text-red-600 text-[13px] mb-4">{error.desc}</p>
+            <p className="text-red-600 text-[13px] mb-4">{error.note}</p>
           </div>
           <div className="flex justify-end">
             <Link

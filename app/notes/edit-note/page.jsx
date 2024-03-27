@@ -2,12 +2,11 @@
 
 import Form from "@/components/Form";
 import Spinner from "@/components/Spinner";
-import { validateNoteForm } from "@/utils/validations/noteFormValidate";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const CreateNotePage = () => {
+const EditNotePage = () => {
   const { data: session, status } = useSession();
 
   const router = useRouter();
@@ -30,39 +29,9 @@ const CreateNotePage = () => {
     setError({ ...error, [id]: "" });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    const errors = validateNoteForm(formData);
-    if (Object.keys(errors).length === 0) {
-      try {
-        const res = await fetch("/api/notes/new", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: formData.title,
-            note: formData.note,
-            creator: session?.user.id,
-          }),
-        });
-
-        if (res.ok) {
-          setError("");
-          router.push("/");
-          alert("Note successfully created...!");
-        }
-      } catch (err) {
-        alert("Something went wrong, try again!");
-        console.log(err);
-        setLoading(false);
-      }
-    } else {
-      setError(errors);
-      setLoading(false);
-    }
+    console.log(formData);
   };
 
   if (status === "loading" || loading) {
@@ -78,9 +47,9 @@ const CreateNotePage = () => {
         error={error}
         onChange={InputChange}
         onSubmit={handleSubmit}
-        name="Create"
+        name="Edit"
       />
     </div>
   );
 };
-export default CreateNotePage;
+export default EditNotePage;
