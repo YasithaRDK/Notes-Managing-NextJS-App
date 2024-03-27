@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   return (
-    <section className="flex flex-col items-center w-full min-h-screen px-5">
+    <section className="container flex flex-col items-center justify-center min-h-screen px-5 md:px-24 xl:px-32">
       <h1 className="text-center head_text">
         Welcome
         <br />
@@ -31,7 +31,7 @@ const Home = () => {
       <p className="text-center desc">
         Keep your forgettable special notes here and spend your free time
       </p>
-      <Feed />
+      <Feed setLoading={setLoading} />
     </section>
   );
 };

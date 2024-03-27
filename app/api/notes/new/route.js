@@ -11,6 +11,6 @@ export const POST = async (request) => {
     await newNote.save();
     return new NextResponse("Note is added successfully", { status: 201 });
   } catch (error) {
-    return new NextResponse(err, { status: 500 });
+    return new NextResponse(error, { status: 500 });
   }
 };
