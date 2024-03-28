@@ -5,18 +5,16 @@ import NoteCard from "./NoteCard";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-const Feed = ({ setLoading }) => {
+const Feed = ({ setLoading, session }) => {
   const router = useRouter();
-  const { data: session } = useSession();
-  const [posts, setPosts] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/notes`);
       const data = await response.json();
 
-      setPosts(data);
-      setLoading(false);
+      setNotes(data);
     };
 
     if (session?.user.id) {
@@ -24,12 +22,10 @@ const Feed = ({ setLoading }) => {
     }
   }, []);
 
-  console.log(posts);
-
   return (
-    <div className="flex flex-wrap gap-4 mt-10 mb-10 bg-gray-100">
-      {posts && posts.length > 0 ? (
-        posts.map((post, index) => <NoteCard key={index} post={post} />)
+    <div className=" w-5/6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
+      {notes && notes.length > 0 ? (
+        notes.map((note, index) => <NoteCard key={index} post={note} />)
       ) : (
         <></>
       )}

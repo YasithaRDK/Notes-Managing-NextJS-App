@@ -20,18 +20,18 @@ const Home = () => {
   }
 
   return (
-    <section className="container flex flex-col items-center justify-center min-h-screen px-5 md:px-24 xl:px-32">
+    <section className="flex flex-col items-center px-5 mx-auto lg:my-16 min-h-screen">
       <h1 className="text-center head_text">
-        Welcome
-        <br />
+        Welcome{" "}
         <span className="text-center orange_gradient">
           {session?.user?.name}
         </span>
       </h1>
       <p className="text-center desc">
-        Keep your forgettable special notes here and spend your free time
+        Organize notes effortlessly with our app! Boost productivity and stay
+        clutter-free. Try it now!
       </p>
-      <Feed setLoading={setLoading} />
+      <Feed setLoading={setLoading} session={session} />
     </section>
   );
 };

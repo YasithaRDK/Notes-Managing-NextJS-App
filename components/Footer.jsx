@@ -7,11 +7,11 @@ const Footer = () => {
   return (
     <>
       {session && (
-        <footer className="py-5 mt-auto bg-white border-t border-gray-300 end-0">
+        <footer className="py-5 mt-10 bg-white border-t border-gray-300  bottom-0 w-full">
           <div className="container mx-auto text-center">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} Yasitha Dilshan. All Rights
-              Reserved.
+              &copy; {new Date().getFullYear()} Copyright:{" "}
+              <a href="#">Yasitha Dilshan</a>
             </p>
           </div>
         </footer>
