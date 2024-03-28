@@ -27,7 +27,7 @@ export const GET = async (request, { params }) => {
 
     return new NextResponse(JSON.stringify(note), { status: 200 });
   } catch (error) {
-    return new NextResponse(`Error deleting Note: ${error}`, { status: 500 });
+    return new NextResponse(`Error getting Note: ${error}`, { status: 500 });
   }
 };
 
