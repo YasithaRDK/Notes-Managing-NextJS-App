@@ -53,7 +53,7 @@ const RegisterPage = () => {
         if (res.status === 400) {
           alert("Email is already in use");
           setLoading(false);
-        } else if (res.status === 200) {
+        } else if (res.ok) {
           setError("");
           router.push("/login");
           alert("User successfully registered...!");

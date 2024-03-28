@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import User from "@/models/user";
-import connectToDB from "@/utils/db";
+import connect from "@/utils/db";
 
 const handler = NextAuth({
   providers: [
@@ -14,7 +14,7 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         try {
-          await connectToDB();
+          await connect();
 
           const { email, password } = credentials;
           const user = await User.findOne({ email });

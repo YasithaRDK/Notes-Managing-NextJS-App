@@ -1,11 +1,11 @@
-import connection from "@/utils/db";
+import connect from "@/utils/db";
 import Note from "@/models/note";
 import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
   const { title, note, creator } = await request.json();
   try {
-    await connection();
+    await connect();
     const newNote = new Note({ title, note, creator });
 
     await newNote.save();

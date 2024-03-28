@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 const roboto = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "QuickNotiZ",
+  title: "QuickNoteZ",
   description: "Add your notes and manage your works easy",
 };
 

@@ -4,13 +4,15 @@ import { BiTrashAlt } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { format } from "date-fns";
 
-const NoteCard = ({ post }) => {
+const NoteCard = ({ post, handleDelete }) => {
   return (
-    <div className="w-full p-2 transition-all duration-300 transform bg-white shadow-lg rounded-xl flex flex-col h-80">
+    <div className="w-full p-2 transition-all duration-300 transform bg-white shadow-lg rounded-xl flex flex-col h-72">
       <div className="p-2">
         <div className="flex items-center justify-between gap-3 mb-2">
-          <h2 className="w-2/3 text-lg font-bold ">{post.title}</h2>
-          <p className="w-1/3 text-sm font-semibold text-gray-600">
+          <h2 className="w-2/3 text-lg font-bold overflow-hidden">
+            {post.title}
+          </h2>
+          <p className="w-1/3 text-xs font-semibold text-gray-600 ">
             {format(post.createdAt, "MMMM dd,yyyy")}
           </p>
         </div>
@@ -30,13 +32,13 @@ const NoteCard = ({ post }) => {
         >
           <FiEdit size={20} />
         </a>
-        <a
-          role="button"
-          href="#"
+        <button
+          type="button"
           className="px-3 py-1 text-red-500 rounded-md hover:text-red-600"
+          onClick={() => handleDelete(post._id)}
         >
           <BiTrashAlt size={20} />
-        </a>
+        </button>
       </div>
     </div>
   );

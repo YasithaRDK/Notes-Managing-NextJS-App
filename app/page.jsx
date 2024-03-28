@@ -28,7 +28,7 @@ const Home = () => {
         </span>
       </h1>
       <p className="text-center desc">
-        Organize notes effortlessly with our app! Boost productivity and stay
+        Organize notes effortlessly with QuickNoteZ! Boost productivity and stay
         clutter-free. Try it now!
       </p>
       <Feed setLoading={setLoading} session={session} />
