@@ -10,7 +10,7 @@ const roboto = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "QuickNoteZ",
-  description: "Add your notes and manage your works easy",
+  description: "Organize notes effortlessly with QuickNoteZ!",
 };
 
 const RootLayout = async ({ children }) => {

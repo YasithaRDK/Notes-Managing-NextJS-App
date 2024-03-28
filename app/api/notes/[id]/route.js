@@ -13,19 +13,19 @@ export const GET = async (request, { params }) => {
 
     await connect();
 
-    const note = await Note.findById(noteId);
+    const existingNote = await Note.findById(noteId);
 
-    if (!note) {
+    if (!existingNote) {
       return new NextResponse("Note not found", { status: 404 });
     }
 
     const userIdObject = new Types.ObjectId(userId);
 
-    if (!note.creator.equals(userIdObject)) {
+    if (!existingNote.creator.equals(userIdObject)) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    return new NextResponse(JSON.stringify(note), { status: 200 });
+    return new NextResponse(JSON.stringify(existingNote), { status: 200 });
   } catch (error) {
     return new NextResponse(`Error getting Note: ${error}`, { status: 500 });
   }
@@ -76,15 +76,15 @@ export const DELETE = async (request, { params }) => {
 
     await connect();
 
-    const note = await Note.findById(noteId);
+    const existingNote = await Note.findById(noteId);
 
-    if (!note) {
+    if (!existingNote) {
       return new NextResponse("Note not found", { status: 404 });
     }
 
     const userIdObject = new Types.ObjectId(userId);
 
-    if (!note.creator.equals(userIdObject)) {
+    if (!existingNote.creator.equals(userIdObject)) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 

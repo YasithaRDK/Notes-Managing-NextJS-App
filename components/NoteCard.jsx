@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const NoteCard = ({ post, handleDelete }) => {
   return (
-    <div className="w-full p-2 transition-all duration-300 transform bg-white shadow-lg rounded-xl flex flex-col h-72">
-      <div className="p-2">
+    <div className="w-full p-2 transition-all duration-300 transform bg-white shadow-lg rounded-xl flex flex-col h-80">
+      <div className="p-2 border-b-2">
         <div className="flex items-center justify-between gap-3 mb-2">
           <h2 className="w-2/3 text-lg font-bold overflow-hidden">
             {post.title}
@@ -25,7 +25,7 @@ const NoteCard = ({ post, handleDelete }) => {
         </p>
       </div>
 
-      <div className="flex justify-center m-2 border-t">
+      <div className="flex justify-center m-2 border-t-2 p-2">
         <Link
           href={`/notes/edit-note?id=${post._id}`}
           className="px-3 py-1 rounded-md text-amber-500 hover:text-amber-600"

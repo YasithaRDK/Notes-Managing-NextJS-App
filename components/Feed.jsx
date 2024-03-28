@@ -38,7 +38,7 @@ const Feed = ({ session }) => {
             method: "DELETE",
           }
         );
-        if (res.status === 400) {
+        if (res.status === 404) {
           alert("Note not found");
           setLoading(false);
         } else if (res.status === 401) {

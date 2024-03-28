@@ -39,6 +39,7 @@ const EditNotePage = () => {
         setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -72,7 +73,7 @@ const EditNotePage = () => {
           }
         );
 
-        if (res.status === 400) {
+        if (res.status === 404) {
           alert("Note not found");
           setLoading(false);
         } else if (res.status === 401) {
