@@ -11,6 +11,9 @@ const roboto = Open_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "QuickNoteZ",
   description: "Organize notes effortlessly with QuickNoteZ!",
+  icons: {
+    icon: ["./favicon.png"],
+  },
 };
 
 const RootLayout = async ({ children }) => {
