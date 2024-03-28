@@ -58,22 +58,30 @@ const EditNotePage = () => {
     const errors = validateNoteForm(formData);
     if (Object.keys(errors).length === 0) {
       try {
-        const res = await fetch("/api/notes/new", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title: formData.title,
-            note: formData.note,
-            creator: session?.user.id,
-          }),
-        });
+        const res = await fetch(
+          `/api/notes/${noteId}?userId=${session?.user?.id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              title: formData.title,
+              note: formData.note,
+            }),
+          }
+        );
 
-        if (res.ok) {
+        if (res.status === 400) {
+          alert("Note not found");
+          setLoading(false);
+        } else if (res.status === 401) {
+          alert("Unauthorized! you can update only your notes");
+          setLoading(false);
+        } else if (res.ok) {
           setError("");
           router.push("/");
-          alert("Note successfully created...!");
+          alert("Note successfully updated...!");
         }
       } catch (err) {
         alert("Something went wrong, try again!");
