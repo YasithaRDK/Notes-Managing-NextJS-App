@@ -5,6 +5,7 @@ import NoteCard from "./NoteCard";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
+import Link from "next/link";
 
 const Feed = ({ session }) => {
   const router = useRouter();
@@ -35,9 +36,6 @@ const Feed = ({ session }) => {
           `/api/notes/${noteId}?userId=${session?.user?.id}`,
           {
             method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
         if (res.status === 400) {
@@ -66,15 +64,24 @@ const Feed = ({ session }) => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className=" md:w-5/6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
+        <>
           {notes && notes.length > 0 ? (
-            notes.map((note, index) => (
-              <NoteCard key={index} post={note} handleDelete={handleDelete} />
-            ))
+            <div className=" md:w-5/6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
+              {notes.map((note, index) => (
+                <NoteCard key={index} post={note} handleDelete={handleDelete} />
+              ))}
+            </div>
           ) : (
-            <></>
+            <>
+              <p className="text-center text-indigo-500 mt-16 text-xl w-2/4 lg:w-1/4">
+                Stay with us and post your note by clicking the Create button
+              </p>
+              <Link href="/notes/create-note" className="black_btn mt-5">
+                Create
+              </Link>
+            </>
           )}
-        </div>
+        </>
       )}
     </>
   );

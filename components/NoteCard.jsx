@@ -3,6 +3,7 @@
 import { BiTrashAlt } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { format } from "date-fns";
+import Link from "next/link";
 
 const NoteCard = ({ post, handleDelete }) => {
   return (
@@ -25,13 +26,12 @@ const NoteCard = ({ post, handleDelete }) => {
       </div>
 
       <div className="flex justify-center m-2 border-t">
-        <a
-          role="button"
-          href="#"
+        <Link
+          href={`/notes/edit-note?id=${post._id}`}
           className="px-3 py-1 rounded-md text-amber-500 hover:text-amber-600"
         >
           <FiEdit size={20} />
-        </a>
+        </Link>
         <button
           type="button"
           className="px-3 py-1 text-red-500 rounded-md hover:text-red-600"

@@ -9,20 +9,17 @@ import { useState } from "react";
 
 const CreateNotePage = () => {
   const { data: session, status } = useSession();
-
-  const router = useRouter();
-
   const [formData, setFormData] = useState({
     title: "",
     note: "",
   });
-
   const [error, setError] = useState({
     title: "",
     note: "",
   });
-
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const InputChange = (e) => {
     const { value, id } = e.target;
