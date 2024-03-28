@@ -3,6 +3,8 @@ export const validateNoteForm = (formData) => {
 
   if (!formData.title.trim()) {
     errors.title = "Title is required";
+  } else if (formData.title.length > 30) {
+    errors.title = "Title too long";
   }
 
   if (!formData.note.trim()) {
