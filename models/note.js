@@ -10,6 +10,7 @@ const NoteSchema = new Schema(
     title: {
       type: String,
       required: [true, "Title is required."],
+      max: 30,
     },
     note: {
       type: String,

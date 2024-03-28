@@ -3,7 +3,7 @@ export const validateRegisterForm = (formData) => {
 
   if (!formData.name.trim()) {
     errors.name = "Username is required";
-  } else if (formData.name < 4) {
+  } else if (formData.name.length < 4) {
     errors.name = "Username must be at least 4 characters long";
   } else if (!isValidUsername(formData.name)) {
     errors.name =
@@ -18,7 +18,7 @@ export const validateRegisterForm = (formData) => {
 
   if (!formData.password.trim()) {
     errors.password = "Password is required";
-  } else if (formData.password < 8) {
+  } else if (formData.password.length < 8) {
     errors.password = "Password must be at least 8 characters long";
   } else if (!isValidPassword(formData.password)) {
     errors.password =
@@ -38,7 +38,7 @@ export const validateLoginForm = (formData) => {
 
   if (!formData.password.trim()) {
     errors.password = "Password is required";
-  } else if (formData.password < 8) {
+  } else if (formData.password.length < 8) {
     errors.password = "Invalid password";
   } else if (!isValidPassword(formData.password)) {
     errors.password = "Invalid password";
