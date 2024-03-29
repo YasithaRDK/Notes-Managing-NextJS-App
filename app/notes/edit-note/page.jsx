@@ -109,7 +109,7 @@ const EditNotePage = () => {
         error={error}
         onChange={InputChange}
         onSubmit={handleSubmit}
-        name="Edit"
+        name="Save"
       />
     </div>
   );
