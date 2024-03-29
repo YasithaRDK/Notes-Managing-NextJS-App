@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="container mx-auto text-center">
             <p className="text-sm">
               &copy; {new Date().getFullYear()} Created by:{" "}
-              <a href="#">Yasitha Dilshan</a>
+              <a href="https://yasitha-dilshan.vercel.app/">Yasitha Dilshan</a>
             </p>
           </div>
         </footer>
