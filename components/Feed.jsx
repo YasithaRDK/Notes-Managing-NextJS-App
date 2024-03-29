@@ -79,10 +79,10 @@ const Feed = ({ session }) => {
           ) : (
             <>
               <p className="w-2/4 mt-16 text-xl text-center text-indigo-500 lg:w-1/4">
-                Stay with us and post your note by clicking the Create button
+                Click the button below and add your first note
               </p>
               <Link href="/notes/create-note" className="mt-5 black_btn">
-                Create
+                Click Me
               </Link>
             </>
           )}
