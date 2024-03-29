@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { validateNoteForm } from "@/utils/validations/noteFormValidate";
+import toast from "react-hot-toast";
 
 const EditNotePage = () => {
   const { data: session, status } = useSession();
@@ -74,18 +75,18 @@ const EditNotePage = () => {
         );
 
         if (res.status === 404) {
-          alert("Note not found");
+          toast.error("Note not found");
           setLoading(false);
         } else if (res.status === 401) {
-          alert("Unauthorized! you can update only your notes");
+          toast.error("Unauthorized! you can update only your notes");
           setLoading(false);
         } else if (res.ok) {
           setError("");
           router.push("/");
-          alert("Note successfully updated...!");
+          toast.success("Note successfully updated...!");
         }
       } catch (err) {
-        alert("Something went wrong, try again!");
+        toast.error("Something went wrong, try again!");
         console.log(err);
         setLoading(false);
       }

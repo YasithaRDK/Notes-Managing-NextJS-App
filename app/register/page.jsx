@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Spinner from "@/components/Spinner";
 import { validateRegisterForm } from "@/utils/validations/authFormValidate";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const { data: session, status } = useSession();
@@ -51,17 +52,17 @@ const RegisterPage = () => {
           }),
         });
         if (res.status === 400) {
-          alert("Email is already in use");
+          toast.error("Email is already in use");
           setLoading(false);
         } else if (res.ok) {
           setError("");
           router.push("/login");
-          alert("User successfully registered...!");
+          toast.success("User successfully registered...!");
         } else {
           throw new Error("Registration failed");
         }
       } catch (err) {
-        alert("Something went wrong, try again!");
+        toast.error("Something went wrong, try again!");
         console.log(err);
         setLoading(false);
       }

@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 const Feed = ({ session }) => {
   const router = useRouter();
@@ -15,11 +16,15 @@ const Feed = ({ session }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const response = await fetch(`/api/users/${session?.user.id}/notes`);
-      const data = await response.json();
+      try {
+        const response = await fetch(`/api/users/${session?.user.id}/notes`);
+        const data = await response.json();
 
-      setNotes(data);
-      setLoading(false);
+        setNotes(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     if (session?.user.id) {
@@ -39,21 +44,21 @@ const Feed = ({ session }) => {
           }
         );
         if (res.status === 404) {
-          alert("Note not found");
+          toast.error("Note not found");
           setLoading(false);
         } else if (res.status === 401) {
-          alert("Unauthorized! you can delete only your notes");
+          toast.error("Unauthorized! you can delete only your notes");
           setLoading(false);
         } else if (res.ok) {
           const filteredNotes = notes.filter((item) => item._id !== noteId);
 
           setNotes(filteredNotes);
-          alert("Note deleted successfully");
+          toast.success("Note deleted successfully");
           setLoading(false);
         }
       } catch (error) {
         console.log(error);
-        alert("Something went wrong! try again");
+        toast.error("Something went wrong! try again");
         setLoading(false);
       }
     }
@@ -66,17 +71,17 @@ const Feed = ({ session }) => {
       ) : (
         <>
           {notes && notes.length > 0 ? (
-            <div className=" md:w-5/6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
+            <div className="grid w-full grid-cols-1 gap-4 my-20 xl:w-5/6 md:grid-cols-2 lg:grid-cols-3">
               {notes.map((note, index) => (
                 <NoteCard key={index} post={note} handleDelete={handleDelete} />
               ))}
             </div>
           ) : (
             <>
-              <p className="text-center text-indigo-500 mt-16 text-xl w-2/4 lg:w-1/4">
+              <p className="w-2/4 mt-16 text-xl text-center text-indigo-500 lg:w-1/4">
                 Stay with us and post your note by clicking the Create button
               </p>
-              <Link href="/notes/create-note" className="black_btn mt-5">
+              <Link href="/notes/create-note" className="mt-5 black_btn">
                 Create
               </Link>
             </>

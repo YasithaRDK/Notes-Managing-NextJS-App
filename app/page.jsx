@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   return (
-    <section className="flex flex-col items-center px-5 mx-auto lg:my-16 min-h-screen">
+    <section className="flex flex-col items-center px-5 mx-auto lg:my-16">
       <h1 className="text-center head_text">
         Welcome{" "}
         <span className="text-center orange_gradient">

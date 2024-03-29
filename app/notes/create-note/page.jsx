@@ -6,6 +6,7 @@ import { validateNoteForm } from "@/utils/validations/noteFormValidate";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const CreateNotePage = () => {
   const { data: session, status } = useSession();
@@ -49,10 +50,10 @@ const CreateNotePage = () => {
         if (res.ok) {
           setError("");
           router.push("/");
-          alert("Note successfully created...!");
+          toast.success("Note successfully created...!");
         }
       } catch (err) {
-        alert("Something went wrong, try again!");
+        toast.error("Something went wrong, try again!");
         console.log(err);
         setLoading(false);
       }
