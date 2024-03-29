@@ -34,6 +34,7 @@ To get started with QuickNoteZ locally, follow these steps:
 
 - Create a .env file in the root directory.
 - Define the following variables:
+  
   ```.env
   MONGODB_URI=your_mongodb_uri
   NEXTAUTH_SECRET=your secret key
