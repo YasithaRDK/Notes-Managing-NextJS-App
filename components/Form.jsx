@@ -29,7 +29,7 @@ const Form = ({ formData, onChange, onSubmit, name, error }) => {
             </label>
             <textarea
               id="note"
-              className="h-48 authFormInput"
+              className="h-64 authFormInput"
               placeholder="Write your note here"
               value={formData.note}
               onChange={onChange}
@@ -45,7 +45,7 @@ const Form = ({ formData, onChange, onSubmit, name, error }) => {
               cancel
             </Link>
             <button type="submit" className="noteSubmitBtn">
-              {name}
+              {name === "Create" ? name : "Save"}
             </button>
           </div>
         </form>
